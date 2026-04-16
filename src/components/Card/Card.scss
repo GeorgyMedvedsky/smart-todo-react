@@ -1,0 +1,108 @@
+.card {
+    border: 1px solid #606060;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    padding: 16px;
+    padding-right: 50px;
+    width: 100%;
+    cursor: default;
+    transition: opacity .2s;
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1b23;
+
+    &_type_done {
+        opacity: .6;
+
+        & .card__button_type_done {
+            background-color: rgba($color: #009f00, $alpha: 1);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 24px;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__button {
+        border: none;
+        padding: 0;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        padding: 6px;
+        transition: .2s;
+
+        &_type_done {
+            background: url('../../assets/icons/done.svg') center / cover no-repeat;
+            border-radius: 50%;
+        }
+
+        &_type_remove {
+            background: url('../../assets/icons/remove.svg') center / cover no-repeat;
+        }
+
+        &_type_edit {
+            background: url('../../assets/icons/edit.svg') center / cover no-repeat;
+        }
+    }
+
+    &__description {
+        margin: 0;
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    &__priority {
+        margin: 0;
+        font-size: 12px;
+        padding: 4px 8px;
+        color: #fff;
+        width: max-content;
+        border-radius: 6px;
+
+        &_low {
+            background: rgb(0, 160, 32);
+        }
+
+        &_medium {
+            background: rgb(195, 175, 0);
+        }
+
+        &_high {
+            background: rgb(211, 1, 1);
+        }
+    }
+
+    &__tools {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        background: rgba($color: #6000c6, $alpha: .7);
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        opacity: 0;
+        transition: .2s;
+    }
+}
+
+@media(hover:hover) {
+    .card:hover .card__tools {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
